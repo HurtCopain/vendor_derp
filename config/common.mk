@@ -103,10 +103,10 @@ PRODUCT_COPY_FILES += \
 # Boot Animation
 ifeq ($(USE_LEGACY_BOOTANIMATION), true)
 PRODUCT_COPY_FILES += \
-    vendor/derp/bootanimation/bootanimation_legacy.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+    vendor/derp/bootanimation/bootanimation_legacy.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 else
 PRODUCT_COPY_FILES += \
-    vendor/derp/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+    vendor/derp/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 endif
 
 PRODUCT_COPY_FILES += \
