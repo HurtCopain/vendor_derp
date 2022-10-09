@@ -5,7 +5,8 @@ PRODUCT_PACKAGES += \
     NetworkStackOverlay \
     NoCombinedIconsOverlay \
     RepainterServicePriv \
-    Updater
+    Updater \
+    SettingsIntelligenceGooglePrebuilt
 
 # Themes
 PRODUCT_PACKAGES += \
