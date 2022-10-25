@@ -6,4 +6,8 @@
         <permission name="android.permission.PROVIDE_RESOLVER_RANKER_SERVICE"/>
         <permission name="android.permission.REQUEST_NOTIFICATION_ASSISTANT_SERVICE"/>
     </privapp-permissions>
+    
+    <privapp-permissions package="com.android.launcher3">
+        <permission name="android.permission.PACKAGE_USAGE_STATS"/>
+    </privapp-permissions>
 </permissions>
