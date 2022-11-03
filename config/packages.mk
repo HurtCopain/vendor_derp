@@ -4,7 +4,8 @@ PRODUCT_PACKAGES += \
     GameSpace \
     NetworkStackOverlay \
     Updater \
-    SettingsIntelligenceGooglePrebuilt
+    SettingsIntelligenceGooglePrebuilt \
+    GoogleCamera
 
 # Themes
 PRODUCT_PACKAGES += \
