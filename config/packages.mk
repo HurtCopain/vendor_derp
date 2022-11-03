@@ -6,7 +6,8 @@ PRODUCT_PACKAGES += \
     NoCombinedIconsOverlay \
     RepainterServicePriv \
     Updater \
-    SettingsIntelligenceGooglePrebuilt
+    SettingsIntelligenceGooglePrebuilt \
+    GoogleCamera
 
 # Themes
 PRODUCT_PACKAGES += \
