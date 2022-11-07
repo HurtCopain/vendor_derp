@@ -150,6 +150,12 @@ endif
 PRODUCT_PACKAGES += \
     adb_root
 
+ifneq ($(TARGET_FLATTEN_APEX), true)
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules.mk)
+else
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_flatten_apex.mk)
+endif
+
 # SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
