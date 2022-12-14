@@ -23,7 +23,8 @@ endif
 
 # Config
 PRODUCT_PACKAGES += \
-    SimpleDeviceConfig
+    SimpleDeviceConfig \
+    QuickAccessWallet
 
 # Extra tools in DerpFest
 PRODUCT_PACKAGES += \
