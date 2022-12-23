@@ -65,8 +65,8 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:$(TARGET_COPY_OUT_PRODUCT)/usr/keylayout/Vendor_045e_Product_0719.kl
 
 # Enforce privapp-permissions whitelist
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.control_privapp_permissions=enforce
+#PRODUCT_SYSTEM_PROPERTIES += \
+#    ro.control_privapp_permissions=enforce
 
 # Include AOSP audio files
 include vendor/derp/config/aosp_audio.mk
@@ -107,10 +107,10 @@ TARGET_SCREEN_HEIGHT ?= 1920
 # Boot Animation
 ifeq ($(USE_LEGACY_BOOTANIMATION), true)
 PRODUCT_COPY_FILES += \
-    vendor/derp/bootanimation/bootanimation_legacy.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+    vendor/derp/bootanimation/bootanimation_legacy.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 else
 PRODUCT_COPY_FILES += \
-    vendor/derp/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+    vendor/derp/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 endif
 
 PRODUCT_COPY_FILES += \
@@ -119,6 +119,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/derp/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
+PRODUCT_COPY_FILES += \
+   vendor/derp/prebuilt/etc/permissions/privapp-permissions-derp-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-derp-system.xml \
+   
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
@@ -147,6 +150,12 @@ endif
 PRODUCT_PACKAGES += \
     adb_root
 
+ifneq ($(TARGET_FLATTEN_APEX), true)
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules.mk)
+else
+$(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_flatten_apex.mk)
+endif
+
 # SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
@@ -159,8 +168,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 	persist.sys.disable_rescue=true
 
 # Blur
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.launcher.blur.appLaunch=false
+#PRODUCT_SYSTEM_PROPERTIES += \
+#    ro.launcher.blur.appLaunch=false
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/derp/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/derp/overlay/common

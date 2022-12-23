@@ -1,11 +1,12 @@
 # DerpFest packages
 PRODUCT_PACKAGES += \
     DerpSetupWizard \
-    Flipendo \
     GameSpace \
     NetworkStackOverlay \
     RepainterServicePriv \
-    Updater
+    Updater \
+    SettingsIntelligenceGooglePrebuilt \
+    GoogleCamera
 
 # Themes
 PRODUCT_PACKAGES += \
@@ -21,7 +22,8 @@ endif
 
 # Config
 PRODUCT_PACKAGES += \
-    SimpleDeviceConfig
+    SimpleDeviceConfig \
+    QuickAccessWallet
 
 # Extra tools in DerpFest
 PRODUCT_PACKAGES += \
@@ -44,7 +46,21 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/mkfs.ntfs \
     system/bin/mount.ntfs \
     system/%/libfuse-lite.so \
-    system/%/libntfs-3g.so
+    system/%/libntfs-3g.so \
+    system/bin/curl \
+    system/bin/getcap \
+    system/bin/setcap \
+    system/etc/permissions/privapp-permissions-derp-system.xml \
+    system/fonts/Arvo-Bold.ttf \
+    system/fonts/Arvo-BoldItalic.ttf \
+    system/fonts/Arvo-Italic.ttf \
+    system/fonts/Arvo-Regular.ttf \
+    system/media/bootanimation.zip \
+    system/app/GoogleExtShared/GoogleExtShared.apk \
+    system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+    system/etc/permissions/privapp-permissions-google.xml \
+    system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk \
+    system/priv-app/TagGoogle/TagGoogle.apk
 
 # Openssh
 PRODUCT_PACKAGES += \
